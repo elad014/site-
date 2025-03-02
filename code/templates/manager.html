@@ -20,15 +20,12 @@
 <body>
     <h1>Manager Site</h1>
     <p>This button will clone the site from Git and update the files.</p>
-    <button onclick="sendClick()">Update</button>
+    <button onclick="git_update()">Update</button>
     <button onclick="return_home()">return</button>
 
     <script>
-        function sendClick() {
-            fetch('/update', { method: 'POST' })
-                .then(response => response.json())
-                .then(data => console.log(data.message))
-                .catch(error => console.error('Error:', error));
+        function git_update() {
+            fetch('/git_update', { method: 'POST' });
         }
         function return_home()  {
             window.location.href = "/";

@@ -15,6 +15,8 @@ def goToManagerPage():
 @app.route('/git_update', methods=['POST'])
 def git_update():
     os.system("cd ~/Desktop/site && git pull https://github.com/elad014/site-.git master --progress")
+    return {'message': 'Git update successful'}, 200
+
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=5000, debug=True)
