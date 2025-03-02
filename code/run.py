@@ -14,8 +14,7 @@ def goToManagerPage():
 
 @app.route('/git_update', methods=['POST'])
 def git_update():
-    print("Clicked")  # This prints to the server terminal
-    return jsonify({"message": "Button clicked!"})  # Respond to client
+    os.system("cd ~/Desktop/site && git pull https://github.com/elad014/site-.git master --progress")
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=5000, debug=True)
