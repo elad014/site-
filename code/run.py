@@ -14,6 +14,7 @@ def goToManagerPage():
 
 @app.route('/git_update', methods=['POST'])
 def git_update():
+    print("update_git w8 for finish!!!!!!!!!!!!!!!!!!!!!!!!!!!!")
     os.system("cd /home/ubuntu/Desktop/site-/ && git reset --hard HEAD  && git pull https://github.com/elad014/site-.git master --progress")
     return {'message': 'Git update successful'}, 200
 
