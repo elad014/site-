@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Click Counter</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin-top: 50px;
+        }
+        button {
+            font-size: 16px;
+            padding: 10px 20px;
+            margin: 10px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Click Counter</h1>
+    <p>Clicks: <span id="count">0</span></p>
+    <button onclick="incrementCounter()">Count Clicks</button>
+    <button onclick="resetCounter()">Reset</button>
+    <button onclick="goToManagerPage()">Go to Manager Page</button>
+
+    <script>
+        let count = 0;
+
+        function incrementCounter() {
+            count++;
+            document.getElementById("count").innerText = count;
+        }
+
+        function resetCounter() {
+            count = 0;
+            document.getElementById("count").innerText = count;
+        }
+
+        function goToManagerPage() {
+            window.location.href = "/goToManagerPage";
+        }
+    </script>
+</body>
+</html>
