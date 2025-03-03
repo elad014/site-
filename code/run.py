@@ -18,13 +18,8 @@ def goToManagerPage():
 def read_log():
         with open("log.txt",'r') as file:
             log = file.read()
-            cleaned_logs = clean_ansi_codes(log).replace("\n", "<br>")  # Remove ANSI & format for HTML
-        return cleaned_logs  # Serve main.html from templates/
-
-def clean_ansi_codes(text):
-    """Remove ANSI escape sequences from log text."""
-    ansi_escape = re.compile(r'\x1B(?:[@-Z\\-_]|\[[0-?]*[ -/]*[@-~])')
-    return ansi_escape.sub('', text)
+        log.split("\n")
+        return log  # Serve main.html from templates/
 
 @app.route('/clean_log', methods=['POST'])
 def clean_log():
