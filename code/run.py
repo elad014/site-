@@ -16,10 +16,11 @@ def goToManagerPage():
     return render_template("manager.html",version=version,log = log)  # Serve main.html from templates/
 
 def read_log():
+        log = ""
         with open("log.txt",'r') as file:
-            log_lines = file.readlines()  # Read all lines into a list
-        formatted_logs = "<br>".join(log_lines)  # Replace newlines with <br> for HTML display
-        return formatted_logs  # Serve main.html from templates/
+            log = file.read()  # Read all lines into a list
+        return log  # Serve main.html from templates/
+
 
 @app.route('/clean_log', methods=['POST'])
 def clean_log():
