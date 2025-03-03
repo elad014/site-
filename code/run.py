@@ -10,18 +10,20 @@ def home():
 
 @app.route('/goToManagerPage')
 def goToManagerPage():
-    with open('version.txt','r') as file:
-        version = file.read()
+    version =read_version()
     return render_template("manager.html",version=version)  # Serve main.html from templates/
 
 @app.route('/git_update', methods=['POST'])
 def git_update():
-
     print("update_git w8 for finish!!!!!!!!!!!!!!!!!!!!!!!!!!!!")
-    os.system("cd /home/ubuntu/Desktop/site-/code && git reset --hard HEAD  && git pull https://github.com/elad014/site-.git master --progress")
+    #os.system("cd /home/ubuntu/Desktop/site-/code && git reset --hard HEAD  && git pull https://github.com/elad014/site-.git master --progress")
+    version = read_version()
     return {'message': 'Git update successful'}, 200
 
-
+def read_version():
+    with open('version.txt','r') as file:
+        version = file.read()
+    return version
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=5000, debug=True)

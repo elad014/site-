@@ -24,9 +24,16 @@
     <button onclick="return_home()">return</button>
 
     <script>
-        function git_update() {
-            fetch('/git_update', { method: 'POST' });
-        }
+    function git_update() {
+        fetch('/git_update', { method: 'POST' })
+            .then(response => response.json())  // Parse JSON response
+            .then(data => {
+                if (data.message === "Git update successful") {
+                    location.reload();  // Refresh the page
+                }
+            })
+            .catch(error => console.error("Error updating:", error));
+    }
         function return_home()  {
             window.location.href = "/";
         }
