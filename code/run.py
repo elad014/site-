@@ -17,8 +17,7 @@ def goToManagerPage():
 
 def read_log():
         with open("log.txt",'r') as file:
-            log = file.read()
-        log.split("\n")
+            log = file.read().splitlines()
         return log  # Serve main.html from templates/
 
 @app.route('/clean_log', methods=['POST'])
