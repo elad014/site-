@@ -1,6 +1,6 @@
 import os
 
-from flask import Flask, render_template, jsonify
+from flask import Flask, render_template
 
 app = Flask(__name__)
 
@@ -15,9 +15,8 @@ def goToManagerPage():
 
 @app.route('/git_update', methods=['POST'])
 def git_update():
-    print("update_git w8 for finish!!!!!!!!!!!!!!!!!!!!!!!!!!!!")
-    #os.system("cd /home/ubuntu/Desktop/site-/code && git reset --hard HEAD  && git pull https://github.com/elad014/site-.git master --progress")
-    version = read_version()
+    print("[INFO] Update files from git w8 4 finish!!")
+    os.system("cd /home/ubuntu/Desktop/site-/code && git reset --hard HEAD  && git pull https://github.com/elad014/site-.git master --progress")
     return {'message': 'Git update successful'}, 200
 
 def read_version():
