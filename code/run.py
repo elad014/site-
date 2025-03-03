@@ -19,7 +19,6 @@ def git_update():
 
     print("update_git w8 for finish!!!!!!!!!!!!!!!!!!!!!!!!!!!!")
     os.system("cd /home/ubuntu/Desktop/site-/ && git reset --hard HEAD  && git pull https://github.com/elad014/site-.git master --progress")
-    print("Hallan Hallan*************************************")
     return {'message': 'Git update successful'}, 200
 
 
