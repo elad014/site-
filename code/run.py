@@ -11,7 +11,22 @@ def home():
 @app.route('/goToManagerPage')
 def goToManagerPage():
     version =read_version()
-    return render_template("manager.html",version=version)  # Serve main.html from templates/
+    log = read_log()
+    return render_template("manager.html",version=version,log = log)  # Serve main.html from templates/
+
+def read_log():
+        with open("log.txt",'r') as file:
+            log = file.read()
+        return log  # Serve main.html from templates/
+
+
+
+@app.route('/clean_log', methods=['POST'])
+def clean_log():
+    print("[INFO] Cleaning log file!!!")
+    with open("log.txt", 'w') as file:
+            file.write("")
+    return {'message': 'Git update successful'}, 200
 
 @app.route('/git_update', methods=['POST'])
 def git_update():

@@ -21,7 +21,11 @@
     <h1>Manager Site Version: {{version}}</h1>
     <p>This button will clone the site from Git and update the files.</p>
     <button onclick="git_update()">Update</button>
+    <button onclick="refresh()">refresh</button>
+    <button onclick="clean_log()">clean_log</button>
     <button onclick="return_home()">return</button>
+    <h2>server Log:</h2>
+    <p>{{log}}</p>
 
     <script>
     function git_update() {
@@ -37,6 +41,13 @@
         function return_home()  {
             window.location.href = "/";
         }
+    function refresh() {
+        fetch('/goToManagerPage', { method: 'POST' })
+        location.reload();
+    }
+        function clean_log() {
+        fetch('/clean_log', { method: 'POST' })
+    }
     </script>
 </body>
 </html>
