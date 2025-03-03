@@ -16,8 +16,18 @@ def goToManagerPage():
 @app.route('/git_update', methods=['POST'])
 def git_update():
     print("[INFO] Update files from git w8 4 finish!!!")
-    os.system("cd /home/ubuntu/Desktop/site-/ && git reset --hard HEAD  && git pull https://github.com/elad014/site-.git master --progress")
+    if is_production:
+        os.system("cd /home/ubuntu/Desktop/site-/ && git reset --hard HEAD  && git pull https://github.com/elad014/site-.git master --progress")
     return {'message': 'Git update successful'}, 200
+
+def is_production():
+    try:
+        with open("prodaction.txt",'r') as file:
+            key = file.read()
+        return key == 'yes'
+    except:
+        pass
+
 
 def read_version():
     with open('version.txt','r') as file:
