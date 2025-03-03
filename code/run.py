@@ -17,7 +17,7 @@ def goToManagerPage():
 def git_update():
     print("[INFO] Update files from git w8 4 finish!!!")
     if is_production:
-        os.system("cd /home/ubuntu/Desktop/site-/ && git reset --hard HEAD  && git pull https://github.com/elad014/site-.git master --progress")
+        os.system("cd /home/ubuntu/Desktop/site-/code && git reset --hard HEAD  && git pull https://github.com/elad014/site-.git master --progress")
     return {'message': 'Git update successful'}, 200
 
 def is_production():
